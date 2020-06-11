@@ -31,7 +31,7 @@ def process():
 
 @app.route("/cpu")
 def getSortByCpu():
-    print "cpu"
+    #print "cpu"
 
     
     process = subprocess.check_output(["ps","-eo","cmd,%cpu,%mem,user,pid,time" , "--sort=-%cpu"]).rstrip("\n").replace("'","").replace(" - ","   ").split("\n")[1:]
@@ -39,22 +39,22 @@ def getSortByCpu():
     
     for p in process:
         
-        data.append( dict(cmd= p[0:27], cpu = p[28:32], mem = p[33:37], user = p[38:46], pid = p[47:52], time = p[53:61] )  )
-
+        data.append( dict(cmd= p[0:27], cpu = p[28:32], mem = p[33:37], user = p[38:46].replace(" ",""), pid = p[47:52], time = p[53:61] )  )
+        
     
     return {'item' : data}
 
 @app.route("/mem")
 def getSortByMem():
 
-    print "mem"
+    #print "mem"
 
     process = subprocess.check_output(["ps","-eo","cmd,%cpu,%mem,user,pid,time" , "--sort=-%mem"]).rstrip("\n").replace("'","").replace(" - ","   ").split("\n")[1:]
     data = []
     
     for p in process:
         
-        data.append( dict(cmd= p[0:27], cpu = p[28:32], mem = p[33:37], user = p[38:46], pid = p[47:52], time = p[53:61] )  )
+        data.append( dict(cmd= p[0:27], cpu = p[28:32], mem = p[33:37], user = p[38:46].replace(" ","")  , pid = p[47:52], time = p[53:61] )  )
     
     
     return {'item' : data}
@@ -62,17 +62,26 @@ def getSortByMem():
 @app.route("/pid")
 def getSortByPid():
 
-    print "pid"
+    #print "pid"
 
     process = subprocess.check_output(["ps","-eo","cmd,%cpu,%mem,user,pid,time" , "--sort=pid"]).rstrip("\n").replace("'","").replace(" - ","   ").split("\n")[1:]
     data = []
 
     for p in process:
 
-        data.append( dict(cmd= p[0:27], cpu = p[28:32], mem = p[33:37], user = p[38:46], pid = p[47:52], time = p[53:61] )  )
+        data.append( dict(cmd= p[0:27], cpu = p[28:32], mem = p[33:37], user = p[38:46].replace(" ","")  , pid = p[47:52], time = p[53:61] )  )
     
 
     return {'item' : data}
+
+
+
+
+@app.route("/kill/<pid>")
+def killWithPid(pid):
+    #print "pid", pid
+    subprocess.call(["kill", ""+pid])
+    return "done"
 
 
 

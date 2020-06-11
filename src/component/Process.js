@@ -101,6 +101,14 @@ function Process(props){
     }
 
 
+    const handleKill = (pid) => {
+        console.log("pid", pid);
+        fetch("/kill/"+pid).then(
+
+        );
+    }
+
+
     const handleCpuChange = () =>{
         setSort("cpu");
         //window.location.reload();
@@ -143,6 +151,14 @@ function Process(props){
 
                     </TableCell>
                     <TableCell align="center">TIME</TableCell>
+
+                    <TableCell align="center">KILL</TableCell>
+
+
+
+
+
+
                 </TableRow>
                 </TableHead>
                 <TableBody>
@@ -156,6 +172,25 @@ function Process(props){
                         <TableCell align="center">{row.cpu}</TableCell>
                         <TableCell align="center">{row.mem}</TableCell>
                         <TableCell align="center">{row.time}</TableCell>
+                        <TableCell align="center">
+                            {(() =>{
+                                if(row.user != "root"){
+                                    return(
+                                        <Button
+                                            variant="contained"
+                                            color="primary"
+                                            onClick={() => handleKill(row.pid)}
+                                            >
+                                            Kill
+                                        </Button>
+                                    );
+
+                                }
+                            })()}
+                        </TableCell>
+
+
+
                     </TableRow>
                 ))}
                 </TableBody>
