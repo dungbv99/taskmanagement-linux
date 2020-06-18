@@ -13,12 +13,16 @@ Install environment:
         npm install
         
 Run project:
+
+
         Open new terminal and run:    
-                python app.py
+        -       python app.py
+                
+                
                 
                 
         Open new terminal and run:    
-                npm start
+        -       npm start
         
 Open web browser and project run like this:
         
