@@ -15,6 +15,8 @@ Install environment:
 Run project:
         Open new terminal and run:    
                 python app.py
+                
+                
         Open new terminal and run:    
                 npm start
         
