@@ -2,7 +2,7 @@ Open terminal in linux and run:
 -       git clone https://github.com/matdieuhau999/taskmanagementfrontend.git
 
 cd to taskmanagementfrontend: 
-        cd taskmanagementfrontend
+-       cd taskmanagementfrontend
 
 Requier:
 -       npm version >= 6 (https://linuxize.com/post/how-to-install-node-js-on-ubuntu-18.04/)
