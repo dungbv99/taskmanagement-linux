@@ -27,6 +27,12 @@ Run project:
 Open web browser and project run like this:
 ![anh1](https://github.com/matdieuhau999/taskmanagementfrontend/blob/master/103313974_2877410619152889_6551575532086816357_n.png)
 
+
+Click to pid to sort by pid increase.
+Click to cpu to sort by %cpu used decrease.
+Click to mem to sort by %mem used decrease.
+Click kill to kill process
+
         
         
         
