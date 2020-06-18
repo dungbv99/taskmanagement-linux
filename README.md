@@ -29,8 +29,11 @@ Open web browser and project run like this:
 
 
 Click to pid to sort by pid increase.
+
 Click to cpu to sort by %cpu used decrease.
+
 Click to mem to sort by %mem used decrease.
+
 Click kill to kill process
 
         
